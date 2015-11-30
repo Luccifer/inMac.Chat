@@ -17,6 +17,9 @@
 //    required init(coder aDecoder: NSCoder) {
 //        super.init(coder: aDecoder)!
 //        
+//        self.titleLabel!.text! = "hello"
+//        self.imageView = UIImageView()
+//        
 //        self.imageView?.translatesAutoresizingMaskIntoConstraints = false
 //        self.imageView?.backgroundColor = UIColor.lightGrayColor()
 //        self.imageView?.layer.cornerRadius = 15.0
@@ -29,12 +32,18 @@
 //        self.titleLabel?.numberOfLines = 0
 //        
 //        self.configureSubviews()
+//        
+//        
 //    }
 //    
-//   
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        // Initialization code
+//        self.backgroundColor = UIColor.clearColor()
+//    }
 //    
 //    func configureSubviews() {
-//        self.contentView.addSubview(self.imageView!)
+////        self.contentView.addSubview(self.imageView!)
 //        self.contentView.addSubview(self.titleLabel!)
 //        
 ////        let views: NSDictionary = ["imageView":self.imageView!, "titleLabel": self.titleLabel!]

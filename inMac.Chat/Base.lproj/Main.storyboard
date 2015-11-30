@@ -18,17 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fnE-3r-7W7">
-                                <rect key="frame" x="35" y="196" width="174" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fnE-3r-7W7">
+                                <rect key="frame" x="35" y="170" width="174" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="IVg-Wd-W2b"/>
-                                    <constraint firstAttribute="width" constant="280" id="Pf4-47-GgZ"/>
+                                    <constraint firstAttribute="width" constant="174" id="Pf4-47-GgZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5RG-Dd-OhA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5RG-Dd-OhA">
                                 <rect key="frame" x="100" y="251" width="44" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Войти"/>
@@ -37,18 +37,25 @@
                                     <segue destination="v4U-bX-Eba" kind="show" identifier="toVerify" id="TQ0-l4-MPo"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xmn-rP-I9r">
+                                <rect key="frame" x="35" y="208" width="174" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fnE-3r-7W7" firstAttribute="centerX" secondItem="5RG-Dd-OhA" secondAttribute="centerX" id="HHc-qp-iIO"/>
-                            <constraint firstItem="5RG-Dd-OhA" firstAttribute="top" secondItem="fnE-3r-7W7" secondAttribute="bottom" constant="25" id="PMM-v9-3P1"/>
-                            <constraint firstItem="fnE-3r-7W7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="176" id="Yc6-OI-xap"/>
+                            <constraint firstItem="5RG-Dd-OhA" firstAttribute="top" secondItem="fnE-3r-7W7" secondAttribute="bottom" constant="51" id="PMM-v9-3P1"/>
+                            <constraint firstItem="fnE-3r-7W7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="Yc6-OI-xap"/>
                             <constraint firstItem="fnE-3r-7W7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="wXE-CL-hUg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="nickNameField" destination="fnE-3r-7W7" id="qcj-wU-WgN"/>
+                        <outlet property="passwordTextField" destination="Xmn-rP-I9r" id="ws4-NS-uCt"/>
                         <outlet property="requestCodeButton" destination="5RG-Dd-OhA" id="7Vu-2L-q96"/>
                         <segue destination="202-lB-Ti0" kind="show" identifier="passToken" id="u6p-Wx-jEP"/>
                     </connections>
@@ -96,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bff-ea-a0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="240" y="-463"/>
+            <point key="canvasLocation" x="320" y="-463"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="hdG-VZ-hfe">
@@ -115,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbx-bJ-lYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="-463"/>
+            <point key="canvasLocation" x="1078" y="-463"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

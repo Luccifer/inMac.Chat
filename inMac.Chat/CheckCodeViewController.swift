@@ -32,9 +32,9 @@ class CheckCodeViewController: UIViewController {
     }
     
     func verify_code(code: String, onComplete: () -> Void) {
-        socket.emitWithAck("app_verification", ["method": "requestCode", "username": username, "uid": uuid, "verificationCode": code])(timeoutAfter: 0) { data in
+        socket.emitWithAck("app_verification", ["method": "requestCode", "username": username!, "uid": uuid, "verificationCode": code])(timeoutAfter: 0) { data in
             
-            print(data)
+            print("VERIFY CODE:\(data)")
             
             guard (data.count > 0) else { print("code_verification empty answer"); return }
             
@@ -44,8 +44,6 @@ class CheckCodeViewController: UIViewController {
                         token = json["token"].stringValue
                         userid = json["userid"].intValue
                         
-                        let keyChain = AuthDetailes()
-                        keyChain.save()
                         print("Code Confirm Success")
                         
                         self.performSegueWithIdentifier("toChat", sender: nil)

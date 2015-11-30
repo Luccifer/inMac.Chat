@@ -17,7 +17,8 @@
 		BEA547211BFDF118000ADC45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA5471F1BFDF118000ADC45 /* Main.storyboard */; };
 		BEA547231BFDF118000ADC45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA547221BFDF118000ADC45 /* Assets.xcassets */; };
 		BEA547261BFDF118000ADC45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA547241BFDF118000ADC45 /* LaunchScreen.storyboard */; };
-		BED22D2D1C0A19EC00B84F43 /* AuthDetailes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED22D2C1C0A19EC00B84F43 /* AuthDetailes.swift */; };
+		BED22D2D1C0A19EC00B84F43 /* AuthDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED22D2C1C0A19EC00B84F43 /* AuthDetails.swift */; };
+		BEE5B0401C0C4838001A1CC2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE5B03F1C0C4838001A1CC2 /* Message.swift */; };
 		BEF1BBA41C09E31200BA8088 /* CheckCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF1BBA31C09E31200BA8088 /* CheckCodeViewController.swift */; };
 		BEF1BBA91C09F56800BA8088 /* variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF1BBA81C09F56800BA8088 /* variables.swift */; };
 		BEF1BBAB1C09FBCF00BA8088 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF1BBAA1C09FBCF00BA8088 /* ChatViewController.swift */; };
@@ -43,7 +44,8 @@
 		BEA547221BFDF118000ADC45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEA547251BFDF118000ADC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEA547271BFDF118000ADC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BED22D2C1C0A19EC00B84F43 /* AuthDetailes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthDetailes.swift; sourceTree = "<group>"; };
+		BED22D2C1C0A19EC00B84F43 /* AuthDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthDetails.swift; sourceTree = "<group>"; };
+		BEE5B03F1C0C4838001A1CC2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		BEF1BBA31C09E31200BA8088 /* CheckCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCodeViewController.swift; sourceTree = "<group>"; };
 		BEF1BBA81C09F56800BA8088 /* variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = variables.swift; sourceTree = "<group>"; };
 		BEF1BBAA1C09FBCF00BA8088 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -114,9 +116,10 @@
 				BE3EF7461C0A5813000B1D5A /* SLKMessageViewLayout.h */,
 				BE3EF7471C0A5813000B1D5A /* SLKMessageViewLayout.m */,
 				BEF1BBA81C09F56800BA8088 /* variables.swift */,
-				BED22D2C1C0A19EC00B84F43 /* AuthDetailes.swift */,
+				BED22D2C1C0A19EC00B84F43 /* AuthDetails.swift */,
 				BE3EF7391C0A3297000B1D5A /* CollectionViewCell.swift */,
 				BE3EF73B1C0A4D63000B1D5A /* MessageViewLayout.swift */,
+				BEE5B03F1C0C4838001A1CC2 /* Message.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				TargetAttributes = {
 					BEA547171BFDF118000ADC45 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = QHQL7836SK;
 					};
 				};
 			};
@@ -272,12 +276,13 @@
 				BE3EF73C1C0A4D63000B1D5A /* MessageViewLayout.swift in Sources */,
 				BEF1BBA41C09E31200BA8088 /* CheckCodeViewController.swift in Sources */,
 				BEA5471E1BFDF118000ADC45 /* RequestCodeViewController.swift in Sources */,
-				BED22D2D1C0A19EC00B84F43 /* AuthDetailes.swift in Sources */,
+				BED22D2D1C0A19EC00B84F43 /* AuthDetails.swift in Sources */,
 				BE3EF73A1C0A3297000B1D5A /* CollectionViewCell.swift in Sources */,
 				BEA5471C1BFDF118000ADC45 /* AppDelegate.swift in Sources */,
 				BE3EF7421C0A5753000B1D5A /* MessageTableViewCell.m in Sources */,
 				BE3EF7451C0A5777000B1D5A /* SLKMessageViewCell.m in Sources */,
 				BE3EF7481C0A5813000B1D5A /* SLKMessageViewLayout.m in Sources */,
+				BEE5B0401C0C4838001A1CC2 /* Message.swift in Sources */,
 				BEF1BBAB1C09FBCF00BA8088 /* ChatViewController.swift in Sources */,
 				BEF1BBA91C09F56800BA8088 /* variables.swift in Sources */,
 			);
@@ -392,9 +397,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = inMac.Chat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "eyerise.inMac-Chat";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eyerise.inMac-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "inMac.Chat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -407,9 +413,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = inMac.Chat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "eyerise.inMac-Chat";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eyerise.inMac-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "inMac.Chat-Bridging-Header.h";
 			};

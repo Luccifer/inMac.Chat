@@ -13,14 +13,19 @@ class RequestCodeViewController: UIViewController {
     
     let socket = SocketIOClient(socketURL: "https://inmac.org/chat/socket.io/")
     
+    let KC = KeyChain()
+    
     @IBOutlet weak var nickNameField: UITextField?
+    
+    @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var requestCodeButton: UIButton?
     
     @IBAction func requestCode(sender: AnyObject) {
         
         username = self.nickNameField!.text!
-        self.requestCode(username) { () -> Void in
+        password = self.passwordTextField!.text!
+        self.requestCode(username!) { () -> Void in
             
         }
     }
@@ -28,9 +33,7 @@ class RequestCodeViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         
         if  NSUserDefaults.standardUserDefaults().valueForKey("inchatToken") != nil {
-            let keyChain = AuthDetailes()
-            keyChain.load()
-            print(NSUserDefaults.standardUserDefaults().valueForKey("inchatToken")!)
+            
             self.performSegueWithIdentifier("passToken", sender: nil)
         }else {
             
@@ -40,9 +43,9 @@ class RequestCodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.socket.connect()
-        
+        self.KC.load()
     }
     
     func requestCode(username: String, onComplete: () -> Void) {
@@ -50,7 +53,7 @@ class RequestCodeViewController: UIViewController {
         self.socket.emitWithAck("app_verification", ["method": "requestCode", "username": username, "uid": uuid, "appid": appid
             ])(timeoutAfter: 0) { data in
                 
-                print(data)
+                print("REQUEST CODE:\(data)")
                 
                 guard (data.count > 0) else { print("app_verification empty answer"); return }
                 

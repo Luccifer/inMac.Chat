@@ -9,7 +9,8 @@
 import Foundation
 
 public var uuid = NSUUID().UUIDString
-public var username = ""
+public var username: String?
 public var appid = "INMACCHAT-FB91CPG7N88E90FI3"
 public var userid: Int?
 public var token: String?
+public var password: String?
