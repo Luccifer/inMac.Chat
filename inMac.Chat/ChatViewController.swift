@@ -14,7 +14,8 @@ class ChatViewController: SLKTextViewController {
     
     let socket = SocketIOClient(socketURL: "https://inmac.org/chat/socket.io/")
     
-    var messages: [String] = []
+//    var messages: [String] = []
+    var messages: [MessageNew] = []
     var users: [String] = []
     var myLastMessageId: String?
     
@@ -24,7 +25,9 @@ class ChatViewController: SLKTextViewController {
     }
     
     
-
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
     
     override func viewDidAppear(animated: Bool) {
         self.login()
@@ -45,7 +48,7 @@ class ChatViewController: SLKTextViewController {
         self.keyboardPanningEnabled = true
         self.inverted = false
         
-        self.textView.placeholder = "Message"
+        self.textView.placeholder = "Это чат! Поиск выше :)"
         self.textView.placeholderColor = UIColor.lightGrayColor()
         
         self.registerPrefixesForAutoCompletion(["#","@",":"])
@@ -64,6 +67,7 @@ class ChatViewController: SLKTextViewController {
         self.collectionView!.registerClass(SLKMessageViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
         self.collectionView!.backgroundColor = UIColor.whiteColor()
         
+        
         self.socket.on("api") { data, ack in
             if let json = JSON(rawValue: data[0]) {
                 if let method = json["method"].string {
@@ -77,37 +81,39 @@ class ChatViewController: SLKTextViewController {
                         }
                     case "history":
                         if let list = json["list"].array {
-                            var messages:[Message] = []
                             for item in list {
-                                if let message = Message.parseFromJson(item){
-                                    self.messages.append("\(textMessage)")
-                                    
-                                    print("message is: \(textMessage)")
+                                if let message = MessageNew.parseFromJson(item){
+                                    self.messages.insert(message, atIndex: 0)
+
+                                    print("message is: \(message)")
                                     self.collectionView.reloadData()
                                 }
-                            }
+                                                            }
+                            let useravatar = json["useravatar"].stringValue
+                            let avatar = useravatar.stringByReplacingOccurrencesOfString("\\", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                            print("avatar is \(avatar)")
+                            
+//                            SLKMessageViewCell().imageView =
                         }
                     case "message_writes":
+                        
                         self.typingIndicatorView.insertUsername("Somebody")
                         print("Somebody writes")
                         
                     case "message_new":
-                        let id = json["id"].stringValue
-                        let userid = json["userid"].intValue
-                        let username = json["username"].stringValue
-                        let useravatar = json["useravatar"].stringValue
-                        print(useravatar)
-                        let userlevel = json["userlevel"].intValue
-                        if let message = json["msg"].string {
-                            self.messages.append("\(message)")
+                        if let message = MessageNew.parseFromJson(json) {
+                            
+                            self.messages.insert(message, atIndex: 0)
                             self.collectionView.reloadData()
+                            
                         }
-                        let prvt = json["private"].boolValue
-                        let privatename = json["privatename"].stringValue
-                        let time = json["time"].stringValue
+                        
 //                    case "message_delete":
 //                        if let id = json["id"].string {
-//                            UI.messages = UI.messages.filter { $0.id != id }
+//                            self.messages = self.messages.filter { $0.id != id }
+//                            self.messages = self.messages.f
+////                            self.messages.remove
+//                            self.collectionView.reloadData()
 //                        }
                     default: print(" [\(method)] method received ")
                     }
@@ -115,18 +121,11 @@ class ChatViewController: SLKTextViewController {
             }
         }
         
-
-
-        for message in self.messages {
-            let newMessage = message 
-            self.messages.append("\(newMessage)")
-        }
-//        for index in 0...10 {
-//            let message:NSString = "Hello darling"
-//            self.messages.addObject(message)
-//        }
-        
         self.collectionView.reloadData()
+    }
+    
+    func disconnect() {
+        socket.disconnect()
     }
     
     override func didReceiveMemoryWarning() {
@@ -165,22 +164,24 @@ class ChatViewController: SLKTextViewController {
     
     override func didPressRightButton(sender: AnyObject!) {
         
-        
         self.textView.refreshFirstResponder()
         
-        let message = self.textView.text.copy() as! NSString
-        self.sendMessage(message as String)
+        let message = self.textView.text.copy()
         
-        self.messages.append("\(message)")
+        self.sendMessage(message as! String)
         
-        let idxPath : NSIndexPath = NSIndexPath(forItem: 0, inSection: 0)
-        self.collectionView.insertItemsAtIndexPaths([idxPath])
         
-        self.collectionView.slk_scrollToBottomAnimated(true)
+//        let idxPath : NSIndexPath = NSIndexPath(forItem: 0, inSection: 0)
+//        
+//        self.collectionView.insertItemsAtIndexPaths([idxPath])
+        
         
         super.didPressRightButton(sender)
         
         self.collectionView.reloadData()
+        
+        self.collectionView.slk_scrollToBottomAnimated(true)
+
     }
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -197,9 +198,9 @@ class ChatViewController: SLKTextViewController {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! SLKMessageViewCell
         print(message)
-//        cell.titleLabel?.text = message as String
-        (cell as SLKMessageViewCell).titleLabel?.text = message as String
         
+        (cell as SLKMessageViewCell).titleLabel?.text = message.text
+
         return cell
     }
     
@@ -215,15 +216,9 @@ class ChatViewController: SLKTextViewController {
         
         let attributes: NSDictionary = [NSFontAttributeName: UIFont.systemFontOfSize(17.0), NSParagraphStyleAttributeName: paragraphStyle]
         
-        let bounds: CGRect = message.boundingRectWithSize(CGSizeMake(width, 0.0), options:NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes as? [String : AnyObject], context: nil)
-        
-//        if (message == 0) {
-//            return 0.0;
-//        }
+        let bounds: CGRect = message.text.boundingRectWithSize(CGSizeMake(width, 0.0), options:NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes as? [String : AnyObject], context: nil)
         
         return max(CGRectGetHeight(bounds), minHeight)
-       
-//        return CGFloat()
     }
 
     
@@ -282,8 +277,6 @@ class ChatViewController: SLKTextViewController {
                     }
                 }
             }
-            
-            self.collectionView.reloadData()
         }
     }
 
@@ -291,7 +284,7 @@ class ChatViewController: SLKTextViewController {
         guard (!id.isEmpty) else { return }
         
         socket.emitWithAck("api", ["method": "message_delete", "id": id])(timeoutAfter: 0) { data in
-            //log here
+
         }
     }
     

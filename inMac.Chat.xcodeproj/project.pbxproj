@@ -17,6 +17,7 @@
 		BEA547211BFDF118000ADC45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA5471F1BFDF118000ADC45 /* Main.storyboard */; };
 		BEA547231BFDF118000ADC45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA547221BFDF118000ADC45 /* Assets.xcassets */; };
 		BEA547261BFDF118000ADC45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA547241BFDF118000ADC45 /* LaunchScreen.storyboard */; };
+		BEBFEC1C1C0D2570007B3898 /* MessageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBFEC1B1C0D2570007B3898 /* MessageStruct.swift */; };
 		BED22D2D1C0A19EC00B84F43 /* AuthDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED22D2C1C0A19EC00B84F43 /* AuthDetails.swift */; };
 		BEE5B0401C0C4838001A1CC2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE5B03F1C0C4838001A1CC2 /* Message.swift */; };
 		BEF1BBA41C09E31200BA8088 /* CheckCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF1BBA31C09E31200BA8088 /* CheckCodeViewController.swift */; };
@@ -44,6 +45,7 @@
 		BEA547221BFDF118000ADC45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEA547251BFDF118000ADC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEA547271BFDF118000ADC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEBFEC1B1C0D2570007B3898 /* MessageStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageStruct.swift; sourceTree = "<group>"; };
 		BED22D2C1C0A19EC00B84F43 /* AuthDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthDetails.swift; sourceTree = "<group>"; };
 		BEE5B03F1C0C4838001A1CC2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		BEF1BBA31C09E31200BA8088 /* CheckCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckCodeViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				BE3EF7391C0A3297000B1D5A /* CollectionViewCell.swift */,
 				BE3EF73B1C0A4D63000B1D5A /* MessageViewLayout.swift */,
 				BEE5B03F1C0C4838001A1CC2 /* Message.swift */,
+				BEBFEC1B1C0D2570007B3898 /* MessageStruct.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				BEE5B0401C0C4838001A1CC2 /* Message.swift in Sources */,
 				BEF1BBAB1C09FBCF00BA8088 /* ChatViewController.swift in Sources */,
 				BEF1BBA91C09F56800BA8088 /* variables.swift in Sources */,
+				BEBFEC1C1C0D2570007B3898 /* MessageStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +403,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = inMac.Chat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.eyerise.inMac-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -415,6 +420,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = inMac.Chat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.eyerise.inMac-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";

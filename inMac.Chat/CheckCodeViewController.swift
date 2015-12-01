@@ -14,6 +14,8 @@ class CheckCodeViewController: UIViewController {
     
     let socket = SocketIOClient(socketURL: "https://inmac.org/chat/socket.io/")
     
+    let userAva = "st.inmac.org/images/avatars/0/28/128928.jpg"
+    
     @IBOutlet weak var codeVerificationField: UITextField!
     
     @IBOutlet weak var verifyButton: UIButton!
