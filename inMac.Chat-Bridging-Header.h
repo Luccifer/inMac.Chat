@@ -3,6 +3,8 @@
 //
 
 #import "/Users/glebkarpushkin/Desktop/inMac.Chat/inMac.Chat/SLKMessageViewCell.h"
-#import "/Users/glebkarpushkin/Desktop/inMac.Chat/inMac.Chat/MessageTableViewCell.m"
+#import "/Users/glebkarpushkin/Desktop/inMac.Chat/inMac.Chat/SLKMessageViewCell.m"
 #import "/Users/glebkarpushkin/Desktop/inMac.Chat/inMac.Chat/SLKMessageViewLayout.h"
 #import "/Users/glebkarpushkin/Desktop/inMac.Chat/inMac.Chat/SLKMessageViewLayout.m"
+#import "/Users/glebkarpushkin/Desktop/inMac.Chat/inMac.Chat/MessageTableViewCell.h"
+#import "/Users/glebkarpushkin/Desktop/inMac.Chat/inMac.Chat/MessageTableViewCell.m"

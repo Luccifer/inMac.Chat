@@ -71,8 +71,8 @@
     CGFloat padding = viewHeight-CGRectGetHeight(lastRect);
     padding -= [self contentSizeHeight];
     
-//    padding -= 44.0;
-//    padding -= 20.0;
+    padding -= 44.0;
+    padding -= 20.0;
     
     NSLog(@"padding : %f\n\n", padding);
     

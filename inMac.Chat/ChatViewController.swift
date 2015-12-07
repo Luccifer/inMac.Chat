@@ -9,13 +9,50 @@
 import SlackTextViewController
 import Socket_IO_Client_Swift
 import SwiftyJSON
+import Alamofire
+
+extension UILabel {
+    
+    func calculateHeight(width: CGFloat) -> CGFloat {
+        if #available(iOS 9.0, *) {
+            let textSize = CGSizeMake(bounds.width, 10000.0)
+            let attrs = [NSFontAttributeName: font]
+            if let text = text {
+                return text.boundingRectWithSize(textSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attrs, context: nil).height
+            } else {
+                return 0.0
+            }
+        } else {
+            var f = self.bounds
+            f.size = sizeThatFits(CGSizeMake(f.size.width, CGFloat.max))
+            return f.size.height
+        }
+    }
+    
+    func calculateWidth() -> CGFloat {
+        if #available(iOS 9.0, *) {
+            let textSize = CGSizeMake(10000.0, bounds.height)
+            let attrs = [NSFontAttributeName: font]
+            if let text = text {
+                return text.boundingRectWithSize(textSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attrs, context: nil).width
+            } else {
+                return 0.0
+            }
+        } else {
+            var f = self.bounds
+            f.size = sizeThatFits(CGSizeMake(CGFloat.max, f.size.height))
+            return f.size.width
+        }
+    }
+    
+}
 
 class ChatViewController: SLKTextViewController {
     
     let socket = SocketIOClient(socketURL: "https://inmac.org/chat/socket.io/")
     
-//    var messages: [String] = []
     var messages: [MessageNew] = []
+    
     var users: [String] = []
     var myLastMessageId: String?
     
@@ -23,7 +60,6 @@ class ChatViewController: SLKTextViewController {
         let layout = SLKMessageViewLayout()
         return layout
     }
-    
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -36,12 +72,14 @@ class ChatViewController: SLKTextViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
 //        let timer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "newMessageGet:", userInfo: nil, repeats: true)
         
         self.login()
         
-        
         self.socket.connect()
+        
+        self.setEditing(true, animated: true)
         
         self.bounces = true
         self.shakeToClearEnabled = true
@@ -62,11 +100,12 @@ class ChatViewController: SLKTextViewController {
         self.textInputbar.counterStyle = SLKCounterStyle.Split
         
         self.typingIndicatorView.canResignByTouch = true
-        
+
         
         self.collectionView!.registerClass(SLKMessageViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
         self.collectionView!.backgroundColor = UIColor.whiteColor()
         
+//        self.tableView.registerClass(SLKMessageViewCell.self, forCellWithReuseIdentifier: "MessageTableViewCell")
         
         self.socket.on("api") { data, ack in
             if let json = JSON(rawValue: data[0]) {
@@ -85,7 +124,7 @@ class ChatViewController: SLKTextViewController {
                                 if let message = MessageNew.parseFromJson(item){
                                     self.messages.insert(message, atIndex: 0)
 
-                                    print("message is: \(message)")
+                                   
                                     self.collectionView.reloadData()
                                 }
                                                             }
@@ -93,12 +132,10 @@ class ChatViewController: SLKTextViewController {
                             let avatar = useravatar.stringByReplacingOccurrencesOfString("\\", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
                             print("avatar is \(avatar)")
                             
-//                            SLKMessageViewCell().imageView =
                         }
                     case "message_writes":
                         
                         self.typingIndicatorView.insertUsername("Somebody")
-                        print("Somebody writes")
                         
                     case "message_new":
                         if let message = MessageNew.parseFromJson(json) {
@@ -197,18 +234,33 @@ class ChatViewController: SLKTextViewController {
         let message = self.messages[(indexPath.row)]
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! SLKMessageViewCell
-        print(message)
         
-        (cell as SLKMessageViewCell).titleLabel?.text = message.text
-
+        (cell as SLKMessageViewCell).titleLabel?.text = ("\(message.username): \(message.text)")
+        
+        let userAvatar = message.userAvatar
+        let imageURL = "st.inmac.org/images/avatars/\(userAvatar)"
+        
+        (cell as SLKMessageViewCell).imageView.image = UIImage.imageFromURL(imageURL, placeholder: UIImage(named: "noavatar")!, shouldCacheImage: true, closure: { (image) -> () in
+            
+        })
+        
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let minHeight: CGFloat = 40.0
         
-        let message = self.messages[(indexPath.row)]
+        let minHeight: CGFloat = 120.0
+        
+        let message = self.messages[(indexPath.row)].text
+        let nickname = self.messages[(indexPath.row)].username
+        let text:NSString = nickname + (message as String)
+        let label = SLKMessageViewCell().titleLabel
+        
+        label.text = nickname + (message as String)
+       
+        
         let width: CGFloat = CGRectGetWidth(collectionView.frame)
+        
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -216,11 +268,40 @@ class ChatViewController: SLKTextViewController {
         
         let attributes: NSDictionary = [NSFontAttributeName: UIFont.systemFontOfSize(17.0), NSParagraphStyleAttributeName: paragraphStyle]
         
-        let bounds: CGRect = message.text.boundingRectWithSize(CGSizeMake(width, 0.0), options:NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes as? [String : AnyObject], context: nil)
+        let bounds: CGRect = text.boundingRectWithSize(CGSizeMake(width, 0.0), options:NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes as? [String : AnyObject], context: nil)
+        
+        
+        if (text.length == 0) {
+            return 0.0;
+        }
         
         return max(CGRectGetHeight(bounds), minHeight)
     }
 
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//    
+//            // NOTE: here is where we say we want cells to use the width of the collection view
+//            let requiredWidth = collectionView.bounds.size.width
+//            
+//            // NOTE: here is where we ask our sizing cell to compute what height it needs
+//            let targetSize = CGSize(width: requiredWidth, height: 0)
+//            /// NOTE: populate the sizing cell's contents so it can compute accurately
+////            self.sizingCell.label.text = messages[indexPath.row]
+//            SLKMessageViewCell().titleLabel.text = messages[indexPath.row].text
+////            let adequateSize = self.sizingCell.preferredLayoutSizeFittingSize(targetSize)
+//            let adequateSize = SLKMessageViewCell().systemLayoutSizeFittingSize(targetSize)
+//        
+//        
+//        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! SLKMessageViewCell
+//        
+//        let colletcionViewWidth = self.collectionView.bounds.size.width
+//        
+//        
+//        
+//            return adequateSize
+//    
+//    
+//    }
     
     func login() {
         
@@ -228,7 +309,7 @@ class ChatViewController: SLKTextViewController {
         guard let tok = token else { return }
         
         socket.emitWithAck("app_verification", ["method": "login", "userid": user, "token": tok, "appid": appid])(timeoutAfter: 0) { data in
-//            print(data)
+
             guard (data.count > 0) else { print(" token_verification empty answer "); return }
             
             

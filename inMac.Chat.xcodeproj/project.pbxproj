@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE1741731C15C51B00874ABD /* AFImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1741711C15C51B00874ABD /* AFImageExtension.swift */; };
+		BE1741741C15C51B00874ABD /* AFImageVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1741721C15C51B00874ABD /* AFImageVIewExtension.swift */; };
+		BE1741761C15C6BE00874ABD /* noavatar.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1741751C15C6BE00874ABD /* noavatar.png */; };
 		BE3EF73A1C0A3297000B1D5A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3EF7391C0A3297000B1D5A /* CollectionViewCell.swift */; };
 		BE3EF73C1C0A4D63000B1D5A /* MessageViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3EF73B1C0A4D63000B1D5A /* MessageViewLayout.swift */; };
-		BE3EF7421C0A5753000B1D5A /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3EF7411C0A5753000B1D5A /* MessageTableViewCell.m */; };
 		BE3EF7451C0A5777000B1D5A /* SLKMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3EF7441C0A5777000B1D5A /* SLKMessageViewCell.m */; };
 		BE3EF7481C0A5813000B1D5A /* SLKMessageViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3EF7471C0A5813000B1D5A /* SLKMessageViewLayout.m */; };
+		BE97895C1C147715004030F9 /* MessageViewLayout1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97895B1C147715004030F9 /* MessageViewLayout1.swift */; };
+		BE97895F1C14C38F004030F9 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE97895E1C14C38F004030F9 /* MessageTableViewCell.m */; };
 		BEA5471C1BFDF118000ADC45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA5471B1BFDF118000ADC45 /* AppDelegate.swift */; };
 		BEA5471E1BFDF118000ADC45 /* RequestCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA5471D1BFDF118000ADC45 /* RequestCodeViewController.swift */; };
 		BEA547211BFDF118000ADC45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA5471F1BFDF118000ADC45 /* Main.storyboard */; };
@@ -29,15 +33,19 @@
 /* Begin PBXFileReference section */
 		37F82956EC310D786F6285EF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B038BF02E88294D8B8C76D09 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BE1741711C15C51B00874ABD /* AFImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFImageExtension.swift; sourceTree = "<group>"; };
+		BE1741721C15C51B00874ABD /* AFImageVIewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFImageVIewExtension.swift; sourceTree = "<group>"; };
+		BE1741751C15C6BE00874ABD /* noavatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noavatar.png; sourceTree = "<group>"; };
 		BE3EF7391C0A3297000B1D5A /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		BE3EF73B1C0A4D63000B1D5A /* MessageViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewLayout.swift; sourceTree = "<group>"; };
-		BE3EF7401C0A5753000B1D5A /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
-		BE3EF7411C0A5753000B1D5A /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		BE3EF7431C0A5777000B1D5A /* SLKMessageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKMessageViewCell.h; sourceTree = "<group>"; };
 		BE3EF7441C0A5777000B1D5A /* SLKMessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKMessageViewCell.m; sourceTree = "<group>"; };
 		BE3EF7461C0A5813000B1D5A /* SLKMessageViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKMessageViewLayout.h; sourceTree = "<group>"; };
 		BE3EF7471C0A5813000B1D5A /* SLKMessageViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKMessageViewLayout.m; sourceTree = "<group>"; };
 		BE42972B1C0A0A9C00223065 /* inMac.Chat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "inMac.Chat-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		BE97895B1C147715004030F9 /* MessageViewLayout1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewLayout1.swift; sourceTree = "<group>"; };
+		BE97895D1C14C38F004030F9 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		BE97895E1C14C38F004030F9 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		BEA547181BFDF118000ADC45 /* inMac.Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inMac.Chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEA5471B1BFDF118000ADC45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEA5471D1BFDF118000ADC45 /* RequestCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCodeViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +82,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE9789601C14C392004030F9 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				BE97895D1C14C38F004030F9 /* MessageTableViewCell.h */,
+				BE97895E1C14C38F004030F9 /* MessageTableViewCell.m */,
+			);
+			name = Table;
+			sourceTree = "<group>";
+		};
 		BEA5470F1BFDF118000ADC45 = {
 			isa = PBXGroup;
 			children = (
@@ -100,9 +117,7 @@
 				BEF1BBA61C09F54300BA8088 /* Views */,
 				BEF1BBA51C09F53E00BA8088 /* Models */,
 				BEA5471B1BFDF118000ADC45 /* AppDelegate.swift */,
-				BEA5471F1BFDF118000ADC45 /* Main.storyboard */,
 				BEA547221BFDF118000ADC45 /* Assets.xcassets */,
-				BEA547241BFDF118000ADC45 /* LaunchScreen.storyboard */,
 				BEA547271BFDF118000ADC45 /* Info.plist */,
 			);
 			path = inMac.Chat;
@@ -111,16 +126,19 @@
 		BEF1BBA51C09F53E00BA8088 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BE1741751C15C6BE00874ABD /* noavatar.png */,
+				BE1741711C15C51B00874ABD /* AFImageExtension.swift */,
+				BE1741721C15C51B00874ABD /* AFImageVIewExtension.swift */,
+				BE9789601C14C392004030F9 /* Table */,
 				BE3EF7431C0A5777000B1D5A /* SLKMessageViewCell.h */,
 				BE3EF7441C0A5777000B1D5A /* SLKMessageViewCell.m */,
-				BE3EF7401C0A5753000B1D5A /* MessageTableViewCell.h */,
-				BE3EF7411C0A5753000B1D5A /* MessageTableViewCell.m */,
 				BE3EF7461C0A5813000B1D5A /* SLKMessageViewLayout.h */,
 				BE3EF7471C0A5813000B1D5A /* SLKMessageViewLayout.m */,
+				BE3EF73B1C0A4D63000B1D5A /* MessageViewLayout.swift */,
+				BE97895B1C147715004030F9 /* MessageViewLayout1.swift */,
 				BEF1BBA81C09F56800BA8088 /* variables.swift */,
 				BED22D2C1C0A19EC00B84F43 /* AuthDetails.swift */,
 				BE3EF7391C0A3297000B1D5A /* CollectionViewCell.swift */,
-				BE3EF73B1C0A4D63000B1D5A /* MessageViewLayout.swift */,
 				BEE5B03F1C0C4838001A1CC2 /* Message.swift */,
 				BEBFEC1B1C0D2570007B3898 /* MessageStruct.swift */,
 			);
@@ -130,6 +148,8 @@
 		BEF1BBA61C09F54300BA8088 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BEA547241BFDF118000ADC45 /* LaunchScreen.storyboard */,
+				BEA5471F1BFDF118000ADC45 /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -218,6 +238,7 @@
 				BEA547261BFDF118000ADC45 /* LaunchScreen.storyboard in Resources */,
 				BEA547231BFDF118000ADC45 /* Assets.xcassets in Resources */,
 				BEA547211BFDF118000ADC45 /* Main.storyboard in Resources */,
+				BE1741761C15C6BE00874ABD /* noavatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,10 +303,13 @@
 				BED22D2D1C0A19EC00B84F43 /* AuthDetails.swift in Sources */,
 				BE3EF73A1C0A3297000B1D5A /* CollectionViewCell.swift in Sources */,
 				BEA5471C1BFDF118000ADC45 /* AppDelegate.swift in Sources */,
-				BE3EF7421C0A5753000B1D5A /* MessageTableViewCell.m in Sources */,
 				BE3EF7451C0A5777000B1D5A /* SLKMessageViewCell.m in Sources */,
+				BE1741741C15C51B00874ABD /* AFImageVIewExtension.swift in Sources */,
+				BE97895C1C147715004030F9 /* MessageViewLayout1.swift in Sources */,
 				BE3EF7481C0A5813000B1D5A /* SLKMessageViewLayout.m in Sources */,
+				BE97895F1C14C38F004030F9 /* MessageTableViewCell.m in Sources */,
 				BEE5B0401C0C4838001A1CC2 /* Message.swift in Sources */,
+				BE1741731C15C51B00874ABD /* AFImageExtension.swift in Sources */,
 				BEF1BBAB1C09FBCF00BA8088 /* ChatViewController.swift in Sources */,
 				BEF1BBA91C09F56800BA8088 /* variables.swift in Sources */,
 				BEBFEC1C1C0D2570007B3898 /* MessageStruct.swift in Sources */,

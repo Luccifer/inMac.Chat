@@ -14,9 +14,10 @@ struct MessageNew {
     
     let id: String
     let username: String
-    let text: String
+    var text: NSMutableString
     let isPrivate: Bool
     let userlevel: Int
+    let userAvatar: String
     
     var separator: String {
         return ": "
@@ -28,8 +29,9 @@ struct MessageNew {
             username = item["username"].string,
             msg = item["msg"].string,
             isPrivate = item["private"].int,
+            Avatar = item["useravatar"].string,
             userlevel = item["userlevel"].int {
-                return MessageNew(id: id, username: username, text: msg, isPrivate: isPrivate > 0, userlevel: userlevel)
+                return MessageNew(id: id, username: username, text: NSMutableString(string: msg), isPrivate: isPrivate > 0, userlevel: userlevel, userAvatar: Avatar)
         }
         
         return nil

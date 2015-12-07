@@ -8,7 +8,7 @@
 
 #import "SLKMessageViewCell.h"
 
-#define kImageSize 30.0
+#define kImageSize 90.0
 
 @implementation SLKMessageViewCell
 
